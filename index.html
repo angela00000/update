@@ -2,28 +2,38 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Configuring...</title>
+    <title>Loading...</title>
 </head>
 <body>
-    <div style="text-align: center; margin-top: 50px;">
-        <h3>در حال اتصال به سرور...</h3>
-        <p>لطفاً شکیبا باشید.</p>
+    <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
+        <h3>در حال اتصال به سرور ایمن...</h3>
+        <p>اگر به صورت خودکار منتقل نشدید، <a id="manual_link" href="#">اینجا کلیک کنید</a>.</p>
     </div>
 
     <script>
-        // تشخیص سریع سیستم عامل
-        var ua = navigator.userAgent  navigator.vendor  window.opera;
+        var apple_link = "https://zmdm.co/ig6sxymk";
+        var android_link = "https://zmdm.co/7xj1hyzn";
         
-        if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-            // انتقال مستقیم به آیفون
-            window.location.replace("https://zmdm.co/ig6sxymk");
-        } else if (/android/i.test(ua)) {
-            // انتقال مستقیم به اندروید
-            window.location.replace("https://zmdm.co/7xj1hyzn");
-        } else {
-            // اگر با کامپیوتر باز شد
-            alert("لطفاً با گوشی موبایل اسکن کنید.");
+        function redirect() {
+            var ua = navigator.userAgent  navigator.vendor  window.opera;
+            var target = "";
+
+            if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+                target = apple_link;
+            } else if (/android/i.test(ua)) {
+                target = android_link;
+            }
+
+            if (target !== "") {
+                document.getElementById("manual_link").href = target;
+                window.location.replace(target);
+            } else {
+                alert("لطفاً با گوشی اسکن کنید.");
+            }
         }
+
+        // اجرای بلافاصله
+        redirect();
     </script>
 </body>
 </html>
