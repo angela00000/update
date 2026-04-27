@@ -1,39 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Loading...</title>
-</head>
 <body>
-    <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
-        <h3>در حال اتصال به سرور ایمن...</h3>
-        <p>اگر به صورت خودکار منتقل نشدید، <a id="manual_link" href="#">اینجا کلیک کنید</a>.</p>
-    </div>
-
     <script>
-        var apple_link = "https://zmdm.co/ig6sxymk";
-        var android_link = "https://zmdm.co/7xj1hyzn";
-        
-        function redirect() {
-            var ua = navigator.userAgent  navigator.vendor  window.opera;
-            var target = "";
-
-            if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-                target = apple_link;
-            } else if (/android/i.test(ua)) {
-                target = android_link;
-            }
-
-            if (target !== "") {
-                document.getElementById("manual_link").href = target;
-                window.location.replace(target);
-            } else {
-                alert("لطفاً با گوشی اسکن کنید.");
-            }
-        }
-
-        // اجرای بلافاصله
-        redirect();
+        // تست مستقیم بدون هیچ شرطی
+        var url = (navigator.userAgent.indexOf("iPhone") != -1) ? "https://zmdm.co/ig6sxymk" : "https://zmdm.co/7xj1hyzn";
+        window.location.href = url;
     </script>
+    <p>در حال انتقال... اگر اتفاقی نیفتاد روی لینک زیر بزنید:</p>
+    <a href="https://zmdm.co/ig6sxymk">لینک آیفون</a><br>
+    <a href="https://zmdm.co/7xj1hyzn">لینک اندروید</a>
 </body>
 </html>
